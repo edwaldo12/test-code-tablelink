@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Item } from '../../domain/Item';
-import { fetchItems, softDeleteItem } from '../../services/itemService';
+// import { fetchItems, softDeleteItem } from '../../grpc/itemService';
 import TableHeaderCell from '../atoms/TableHeaderCell';
 import TableCell from '../atoms/TableCell';
 import TablePaginationControls from '../molecules/TablePaginationControl';
@@ -13,8 +13,8 @@ const ItemTable: React.FC = () => {
   const loadData = async () => {
     try {
       const offset = (page - 1) * limit;
-      const data = await fetchItems(limit, offset);
-      setItems(data);
+      // const data = await fetchItems(limit, offset);
+      // setItems(data);
     } catch (error) {
       console.error('Failed to fetch items:', error);
     }
@@ -27,7 +27,7 @@ const ItemTable: React.FC = () => {
 
   const handleDelete = async (uuid: string) => {
     try {
-      await softDeleteItem(uuid);
+      // await softDeleteItem(uuid);
       loadData(); // Reload data after deletion
     } catch (error) {
       console.error('Failed to delete item:', error);

@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"time"
 
@@ -30,8 +31,8 @@ func NewIngredientRepo(db *pgxpool.Pool) *IngredientRepo {
 func (r *IngredientRepo) Create(ctx context.Context, ing *domain.Ingredient) error {
 	ing.UUID = uuid.NewString()
 	now := time.Now()
-	ing.CreatedAt = now
-	ing.UpdatedAt = now
+	ing.CreatedAt = sql.NullTime{Time: now, Valid: true}
+	ing.UpdatedAt = sql.NullTime{Time: now, Valid: true}
 
 	query := `
 			INSERT INTO tm_ingredient (
@@ -130,7 +131,7 @@ func (r *IngredientRepo) GetByName(ctx context.Context, name string) (*domain.In
 }
 
 func (r *IngredientRepo) Update(ctx context.Context, ing *domain.Ingredient) error {
-	ing.UpdatedAt = time.Now()
+	ing.UpdatedAt = sql.NullTime{Time: time.Now(), Valid: true}
 
 	query := `
 			UPDATE tm_ingredient

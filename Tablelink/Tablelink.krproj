@@ -1,0 +1,20 @@
+{
+  "id": "6782bf0a-cc0b-49c0-8674-cec8233ffbf6",
+  "importStreams": [
+    {
+      "id": "bb6c11b6-fd0c-4c8c-a974-005a6cf4823c",
+      "name": "proto-file",
+      "importerName": "ProtoFile",
+      "createMissingOperations": true,
+      "options": {
+        "files": [
+          "../backend/internal/delivery/api/service.proto"
+        ],
+        "importPaths": [],
+        "excludedFiles": []
+      }
+    }
+  ],
+  "authConfigs": [],
+  "certificates": []
+}

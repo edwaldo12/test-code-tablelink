@@ -37,7 +37,7 @@ func (r *ItemRepo) Create(ctx context.Context, item *domain.Item) error {
 		INSERT INTO tm_item (
 			uuid, name, price, status,
 			created_at, updated_at, deleted_at
-		) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+		) VALUES ($1, $2, $3, $4, $5, $6, $7)
 	`
 	_, err := r.db.Exec(ctx, query,
 		item.UUID,

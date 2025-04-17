@@ -1,0 +1,13 @@
+{
+  "details": {
+    "methodFqn": "test_tablelink.IngredientService.DeleteIngredient"
+  },
+  "requests": [
+    {
+      "location": "DeleteIngredient-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc",
+  "importStreamId": "bb6c11b6-fd0c-4c8c-a974-005a6cf4823c"
+}

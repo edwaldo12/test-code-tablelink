@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Ingredient } from '../../domain/Ingredient';
-import {
-  fetchIngredients,
-  softDeleteIngredient,
-} from '../../services/ingredientService';
 
 import TableHeaderCell from '../atoms/TableHeaderCell';
 import TableCell from '../atoms/TableCell';
 import TablePaginationControls from '../molecules/TablePaginationControl';
+import {
+  fetchIngredients,
+  softDeleteIngredient,
+} from '../services/ingredientService';
 
 const IngredientTable: React.FC = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
@@ -17,8 +17,9 @@ const IngredientTable: React.FC = () => {
   const loadData = async () => {
     try {
       const offset = (page - 1) * limit;
-      const data = await fetchIngredients(limit, offset);
-      setIngredients(data);
+      const response = await fetchIngredients(limit, offset);
+      console.log('🚀 ~ loadData ~ response:', response);
+      // setIngredients(data);
     } catch (err) {
       console.error('Failed to fetch ingredients', err);
     }

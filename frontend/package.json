@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@grpc/grpc-js": "^1.13.3",
+    "@grpc/proto-loader": "^0.7.13",
+    "@improbable-eng/grpc-web": "^0.15.0",
+    "@protobuf-ts/grpcweb-transport": "^2.9.6",
+    "@protobuf-ts/runtime": "^2.9.6",
+    "@protobuf-ts/runtime-rpc": "^2.9.6",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -12,6 +18,9 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "axios": "^1.8.4",
+    "grpc-tools": "^1.13.0",
+    "grpc-web": "^1.5.0",
+    "protobufjs": "^7.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
@@ -43,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@protobuf-ts/plugin": "^2.9.6",
     "autoprefixer": "^10.4.21",
     "tailwindcss": "^3.4.17"
   }

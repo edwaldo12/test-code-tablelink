@@ -1,0 +1,9 @@
+{
+  "name": "{{ faker.name.last_name }}",
+  "price": 68.5368,
+  "status": 218,
+  "ingredients": [
+    "e-markets Cambridgeshire Generic",
+    "interface Creative Afghani"
+  ]
+}

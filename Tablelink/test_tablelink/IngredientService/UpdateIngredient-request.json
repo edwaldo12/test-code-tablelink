@@ -1,0 +1,7 @@
+{
+  "uuid": "{{ faker.random.uuid }}",
+  "name": "{{ faker.name.last_name }}",
+  "causeAlergy": false,
+  "type": 158,
+  "status": 351
+}

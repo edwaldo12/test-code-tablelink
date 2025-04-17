@@ -1,0 +1,6 @@
+{
+  "uuid": "{{ faker.random.uuid }}",
+  "name": "{{ faker.name.last_name }}",
+  "price": 11.726686,
+  "status": 626
+}

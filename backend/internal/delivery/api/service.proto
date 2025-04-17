@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package test_tablelink;
+
+option go_package = "../grpc";
+
+// Ingredient Service
+service IngredientService {
+  rpc CreateIngredient(CreateIngredientRequest) returns (CreateIngredientResponse);
+  rpc UpdateIngredient(UpdateIngredientRequest) returns (UpdateIngredientResponse);
+  rpc DeleteIngredient(DeleteIngredientRequest) returns (DeleteIngredientResponse);
+  rpc ListIngredients(ListIngredientsRequest) returns (ListIngredientsResponse);
+}
+
+message CreateIngredientRequest {
+  string name = 1;
+  bool cause_alergy = 2;
+  int32 type = 3;
+  int32 status = 4;
+}
+
+message CreateIngredientResponse {
+  string uuid = 1;
+}
+
+message UpdateIngredientRequest {
+  string uuid = 1;
+  string name = 2;
+  bool cause_alergy = 3;
+  int32 type = 4;
+  int32 status = 5;
+}
+
+message UpdateIngredientResponse {}
+
+message DeleteIngredientRequest {
+  string uuid = 1;
+}
+
+message DeleteIngredientResponse {}
+
+message ListIngredientsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message ListIngredientsResponse {
+  repeated Ingredient ingredients = 1;
+}
+
+message Ingredient {
+  string uuid = 1;
+  string name = 2;
+  bool cause_alergy = 3;
+  int32 type = 4;
+  int32 status = 5;
+  string created_at = 6;
+  string updated_at = 7;
+  string deleted_at = 8;
+}
+
+// Item Service
+service ItemService {
+  rpc CreateItem(CreateItemRequest) returns (CreateItemResponse);
+  rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse);
+  rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse);
+  rpc ListItems(ListItemsRequest) returns (ListItemsResponse);
+}
+
+message CreateItemRequest {
+  string name = 1;
+  float price = 2;
+  int32 status = 3;
+  repeated string ingredients = 4;
+}
+
+message CreateItemResponse {
+  string uuid = 1;
+}
+
+message UpdateItemRequest {
+  string uuid = 1;
+  string name = 2;
+  float price = 3;
+  int32 status = 4;
+}
+
+message UpdateItemResponse {}
+
+message DeleteItemRequest {
+  string uuid = 1;
+}
+
+message DeleteItemResponse {}
+
+message ListItemsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message ListItemsResponse {
+  repeated Item items = 1;
+}
+
+message Item {
+  string uuid = 1;
+  string name = 2;
+  float price = 3;
+  int32 status = 4;
+  string created_at = 5;
+  string updated_at = 6;
+  string deleted_at = 7;
+}

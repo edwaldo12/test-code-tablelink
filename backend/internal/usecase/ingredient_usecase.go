@@ -41,6 +41,10 @@ func (uc *ingredientUsecase) Create(ctx context.Context, ing *domain.Ingredient)
 }
 
 func (uc *ingredientUsecase) Update(ctx context.Context, ing *domain.Ingredient) error {
+	existing, _ := uc.ingredientRepo.GetByName(ctx, ing.Name)
+	if existing != nil && existing.UUID != ing.UUID {
+		return fmt.Errorf("name already exists")
+	}
 	err := uc.ingredientRepo.Update(ctx, ing)
 	if err != nil {
 		return fmt.Errorf("failed to update ingredient: %w", err)
